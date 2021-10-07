@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        if(args.length == 0){
+            System.out.println("恭喜你没有传入参数，你将无法在此次运行过程中使用 args ！");
+        }
+        else {
+            System.out.println("你真的懂了这个吗！");
+        }
+        customer zhangsan=new customer();
+        zhangsan.getCost();
+        zhangsan.calculate();
+        System.out.println(zhangsan.outCost);
+    }
+}
+
+//顾客
+class customer{
+    int preCost;
+    int outCost;
+    double discount;
+    public customer() {
+    }
+
+    public customer(int preCost) {
+        this.preCost = preCost;
+    }
+    public void getCost(){
+        System.out.println("请输入用户最初花费: ");
+        Scanner cost=new Scanner(System.in);
+        this.preCost=cost.nextInt();
+
+    }
+    public void calculate(){
+        if(preCost>55) discount=0.5;
+
+        this.outCost=(int)(this.preCost*this.discount);
+    }
+}
+
+
